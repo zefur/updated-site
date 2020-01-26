@@ -1,7 +1,10 @@
 class BlogsController < ApplicationController
     def index
-        @blogs = Blog.all
+        @blog
+       params[:tag] ? @blogs = Blog.tagged_with(params[:tag]) : @blogs = Blog.all
+       
     end
+
     def show
         @blog = Blog.find(params[:id])
     end
@@ -15,7 +18,12 @@ def create
       render 'new'
     end
   end
-   
+  def edit
+      @blog = Blog.find(params[:id])
+  end 
+
+  
+
   def update
     @blog = Blog.find(params[:id])
    
@@ -25,8 +33,16 @@ def create
       render 'edit'
     end
   end
+
+  def destroy
+    @blog = Blog.find(params[:id])
+    @blog.destroy
+
+    redirect_to blogs_path
+  end
+
     private
     def blog_params
-        params.require(:blog).permit(:title, :body)
+        params.require(:blog).permit(:title, :body,:tag_list,)
     end
 end

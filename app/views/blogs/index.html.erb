@@ -1,18 +1,14 @@
-<h1> heres where I show my blog posts</h1>
+<h1> heres where I show my blog blogs</h1>
 <h1>Listing Articles</h1>
  
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Text</th>
-    <th></th>
-  </tr>
+
+<%= link_to "Create new Post", new_blog_path %>
  
-  <% @blogs.each do |blog| %>
-    <tr>
-      <td><%= blog.title %></td>
-      <td><%= blog.body %></td>
-      <td><%= link_to 'Show', blog_path(blog) %></td>
-    </tr>
+   <% @blogs.each do |blog| %>
+    <h2><%= blog.title %></h2>
+    <p><%= truncate(blog.body, length: 50) %></p>
+    <p><small>Tags: <%= raw blog.tags.map(&:topic).map { |t| link_to t, tag_path(t) }.join(', ') %></small></p>
+    <p><%= link_to "Read blog", blog_path(blog) %></p>
+    <p><%= link_to "Edit", edit_blog_path(blog)%>
+    <p><%= link_to "Delete", blog_path(blog), method: :delete, data: {confirm: 'Are you sure?'} %>
   <% end %>
-</table>
