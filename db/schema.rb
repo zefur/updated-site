@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_24_133534) do
+ActiveRecord::Schema.define(version: 2020_01_26_112801) do
 
   create_table "blogs", force: :cascade do |t|
     t.string "title"
@@ -26,6 +26,31 @@ ActiveRecord::Schema.define(version: 2020_01_24_133534) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["blog_id"], name: "index_comments_on_blog_id"
+  end
+
+  create_table "languages", force: :cascade do |t|
+    t.string "language"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.string "github"
+    t.text "image"
+    t.text "thumb"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "stacks", force: :cascade do |t|
+    t.integer "project_id", null: false
+    t.integer "language_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["language_id"], name: "index_stacks_on_language_id"
+    t.index ["project_id"], name: "index_stacks_on_project_id"
   end
 
   create_table "taggings", force: :cascade do |t|
@@ -44,6 +69,8 @@ ActiveRecord::Schema.define(version: 2020_01_24_133534) do
   end
 
   add_foreign_key "comments", "blogs"
+  add_foreign_key "stacks", "languages"
+  add_foreign_key "stacks", "projects"
   add_foreign_key "taggings", "blogs"
   add_foreign_key "taggings", "tags"
 end
