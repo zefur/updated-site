@@ -1,6 +1,6 @@
 class PortfoliosController < ApplicationController
   def index
-    @project = Project.all
+    @projects = Project.all
   end
   def new
 
@@ -8,19 +8,18 @@ class PortfoliosController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
-end
-    def create
-      @project = Project.new(project_params)
-     
-      if @project.save
-        redirect_to @project
-      else
-        render 'new'
-      end
+  end
+  def create
+    @project = Project.new(project_params)
+    if @project.save
+      redirect_to @project
+    else
+      render 'new'
     end
-    def edit
-        @project = Project.find(params[:id])
-    end 
+  end
+  def edit
+    @project = Project.find(params[:id])
+  end 
 
 
   private
