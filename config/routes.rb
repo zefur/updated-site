@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  
+  devise_for :users
+  get 'users/new'
   get 'portfolios/index'
   get 'pages/landing'
   get 'about' => 'pages#about'
