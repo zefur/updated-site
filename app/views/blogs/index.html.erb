@@ -1,17 +1,13 @@
-<%  if logged_in?(:site_admin)%>
-<h1>HI THERE BOSS</h1>
-<%end%>
-<h1> heres where I show my blog blogs</h1>
-<h1>Listing Articles</h1>
- 
 
-<%= link_to "Create new Post", new_blog_path %>
+
  
-    <% @blogs.each do |blog| %>
-        <h2><%= blog.title %></h2>
-        <p><%= truncate(blog.body, length: 50) %></p>
-        <p><small>Tags: <%= raw blog.tags.map(&:topic).map { |t| link_to t, tag_path(t) }.join(', ') %></small></p>
-        <p><%= link_to "Read blog", blog_path(blog) %></p>
-        <p><%= link_to "Edit", edit_blog_path(blog)%>
-        <p><%= link_to "Delete", blog_path(blog), method: :delete, data: {confirm: 'Are you sure?'} %>
-    <% end %>
+<div class="col-md-8 blog-main">
+      <h3 class="pb-4 mb-4 font-italic border-bottom">Are you lost too?</h3>
+  <% if logged_in?(:site_admin)%>
+      <div>
+   <%=link_to 'Create a new blog post', new_blog_path %>
+   </div>
+<%end%>
+ 
+    <%= render @blogs %>
+    </div>
