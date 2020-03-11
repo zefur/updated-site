@@ -10,19 +10,18 @@
 </p>
 <%= link_to "Edit post", edit_blog_path(@blog)%>
 <%= link_to "Back to blogs", blogs_path %>
-</div>
+
  
 <h2>Comments</h2>
 <% @blog.comments.each do |comment| %>
   <p>
-    <strong>Commenter:</strong>
-    <%= comment.commenter %>
+    <strong><%= comment.commenter %>:</strong>
+     <%= comment.body %>
   </p>
  
-  <p>
-    <strong>Comment:</strong>
-    <%= comment.body %>
-  </p>
+  
+   
+  
 <% end %>
 <h2>Add a comment:</h2>
 <%= form_with(model: [ @blog, @blog.comments.build ], local: true) do |form| %>
@@ -38,3 +37,4 @@
     <%= form.submit %>
   </p>
 <% end %>
+</div>

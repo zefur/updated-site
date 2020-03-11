@@ -1,5 +1,5 @@
 class BlogsController < ApplicationController
-  
+  layout "blog"
     def index
         @blog
        params[:tag] ? @blogs = Blog.tagged_with(params[:tag]) : @blogs = Blog.all
