@@ -1,6 +1,11 @@
-<h1>Portfolios#index</h1>
-<p>Find me in app/views/portfolios/index.html.erb</p>
 
-<%# <%= @projects.each do |project|%>
-<%# <%= project.title%> 
-<%# <% end%> %>
+
+<%= link_to "create new", new_project_path if logged_in?(:site_admin)%>
+<div class="album py-5 bg-light">
+    <div class="container">
+
+      <div class="row">
+<%= render @projects %>
+</div>
+</div>
+</div>

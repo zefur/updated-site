@@ -1,15 +1,18 @@
 class PortfoliosController < ApplicationController
-  
+  layout "portfolio"
   def index
-    @projects = Project.all
+    @project
+    params[:languages] ? @projects = Project.tagged_with(params[:language]) : @projects = Project.all
   end
+  
   def new
-
+    @project = Project.new
   end
 
   def show
     @project = Project.find(params[:id])
   end
+  
   def create
     @project = Project.new(project_params)
     if @project.save
@@ -18,6 +21,7 @@ class PortfoliosController < ApplicationController
       render 'new'
     end
   end
+  
   def edit
     @project = Project.find(params[:id])
   end 
