@@ -1,40 +1,40 @@
-<div class="col-md-8 blog-main">
+
+<p id="notice"><%= notice %></p>
+ <div class="col-md-8 blog-main">
 <p>
-  <strong>Title:</strong>
-  <%= @blog.title %>
+  
+   <h2><%= @blog.title %></h2>
 </p>
- 
+<%= link_to 'Edit', edit_blog_path(@blog) if logged_in?(:site_admin) %> 
 <p>
-  <strong>Text:</strong>
-  <%= @blog.body %>
+  <%= markdown @blog.body %>
 </p>
-<%= link_to "Edit post", edit_blog_path(@blog)%>
-<%= link_to "Back to blogs", blogs_path %>
+
 
  
-<h2>Comments</h2>
-<% @blog.comments.each do |comment| %>
+  <%= link_to "Back to blogs", blogs_path %>
+
+  <h2>Comments</h2>
+  <% @blog.comments.each do |comment| %>
   <p>
     <strong><%= comment.commenter %>:</strong>
-     <%= comment.body %>
+    <%= comment.body %>
   </p>
- 
-  
-   
-  
-<% end %>
-<h2>Add a comment:</h2>
-<%= form_with(model: [ @blog, @blog.comments.build ], local: true) do |form| %>
+
+  <% end %>
+  <h2>Add a comment:</h2>
+  <%= form_with(model: [ @blog, @blog.comments.build ], local: true) do |form|
+  %>
   <p>
-    <%= form.label :commenter %><br>
+    <%= form.label :commenter %><br />
     <%= form.text_field :commenter %>
   </p>
   <p>
-    <%= form.label :body %><br>
+    <%= form.label :body %><br />
     <%= form.text_area :body %>
   </p>
   <p>
     <%= form.submit %>
   </p>
-<% end %>
+  <% end %>
 </div>

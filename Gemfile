@@ -23,6 +23,11 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
 gem 'petergate'
+gem 'aws-sdk-s3'
+gem 'paperclip'
+gem 'coderay'
+gem 'redcarpet'
+gem 'friendly_id'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

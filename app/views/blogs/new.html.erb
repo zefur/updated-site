@@ -1,18 +1,8 @@
-<h1> Here to post new content</h1>
-<%= form_with scope: :blog, url: blogs_path, local: true do |form| %>
-<div class="form-group">
-<%= form.label :title %><br>
-<%= form.text_field :title, class: "form-control" %>
-</div>
-<div class="form-group">
-<%= form.label :body %><br>
-<%=form.text_area :body, class: "form-control", rows: 15%>
-</div>
-<div class="form-group">
-<%= form.text_field :tag_list %></p>
-</div>
-<div class="form-group">
-<%=form.submit "Create a new post", class: "btn btn-secondary" %>
-</div>
-<%end%>
-<%= link_to 'Back', blogs_path%>
+
+<div class="col-md-8 blog-main">
+    <h1>New Blog</h1>
+    
+    <%= render 'form', blog: @blog %>
+    
+    <%= link_to 'Back', blogs_path %>
+    </div>

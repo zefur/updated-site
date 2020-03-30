@@ -1,4 +1,6 @@
 class Project < ApplicationRecord
+  include Placeholder
+  has_many :stacks, dependent: :destroy
     has_many :languages, through: :stacks
 
     def stack_list
@@ -11,5 +13,13 @@ class Project < ApplicationRecord
         end
       end
 
+      has_one_attached :main_image
+      has_one_attached :thumb_image
+
+      def set_defaults
+        self.main_image ||= Placeholder.image(height:600, width: 400)
+        self.thumb_image ||= Placeholder.image(height:300, width: 200)
+
+    end
 
 end

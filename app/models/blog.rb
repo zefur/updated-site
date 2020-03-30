@@ -1,7 +1,12 @@
 class Blog < ApplicationRecord
-    has_many :comments
-    has_many :taggings
+
+  extend FriendlyId 
+  friendly_id :title, use: :slugged
+    has_many :comments, dependent: :delete_all
+    has_many :taggings, dependent: :destroy 
     has_many :tags, through: :taggings
+
+    
 
     def self.tagged_with(topic)
         Tag.find_by!(topic: topic).blogs

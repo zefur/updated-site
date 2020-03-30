@@ -1,15 +1,8 @@
-<%= form_with scope: :blog, url: blogs_path, local: true do |form| %>
-<p>
-<%= form.label :title %><br>
-<%= form.text_field :title %>
-</p>
-<p>
-<%= form.label :body %><br>
-<%=form.text_area :body%>
-</p>
-<p>
-<%= form.text_field :tag_list %></p>
-<p>
-<%=form.submit%>
-</p>
-<%end%>
+<div class="col-md-8 blog-main">
+<h1>Editing Blog</h1>
+
+<%= render 'form', blog: @blog %>
+
+<%= link_to 'Show', @blog %> |
+<%= link_to 'Back', blogs_path %>
+</div>

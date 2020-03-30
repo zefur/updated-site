@@ -1,6 +1,6 @@
 <%= form_with scope: :blog, url: blogs_path, local: true do |form| %>
   <% if blog.errors.any? %>
-    <div id="error_explanation">
+     <div id="error_explanation">
       <h2><%= pluralize(blog.errors.count, "error") %> prohibited this blog from being saved:</h2>
 
       <ul>
@@ -8,23 +8,23 @@
         <li><%= message %></li>
       <% end %>
       </ul>
-    </div>
-  <% end %>
+    </div> 
+    <%end%>
+    
 
   
 <div class="form-group">
-<%= form.label :title %><br>
-<%= form.text_field :title, class: "form-control" %>
+  <%= form.label :title %><br>
+  <%= form.text_field :title, class: "form-control" %>
 </div>
 <div class="form-group">
-<%= form.label :body %><br>
-<%=form.text_area :body, class: "form-control", rows: 15%>
+  <%= form.label :body %><br>
+  <%=form.text_area :body, class: "form-control", rows: 15%>
 </div>
 <div class="form-group">
-<%= form.text_field :tag_list %></p>
+  <%= form.text_field :tag_list %></p>
 </div>
 <div class="form-group">
-<%=form.submit "Create a new post", class: "btn btn-secondary" %>
+  <%=form.submit "Create a new post", class: "btn btn-secondary" %>
 </div>
 <%end%>
-<% end %>

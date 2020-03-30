@@ -25,10 +25,28 @@ class PortfoliosController < ApplicationController
   def edit
     @project = Project.find(params[:id])
   end 
-
+  def update
+    @project = Project.find(params[:id])
+    
+    respond_to do |format|
+        if @project.update(portfolio_params)
+            format.html {redirect_to projects_path, notice: 'Your item is now live.'}
+        else
+            format.html {render :edit}
+        end
+    end
+end
+  
+  def destroy
+    @project = Project.find(params[:id])
+    @project.destroy
+    respond_to do |format|
+        format.html {redirect_to projects_url, notice: "Item deleted" }
+    end
+end
 
   private
   def project_params
-    params.require(:project).permit(:title, :description, :image, :github, :thumb, :stack_list)
+    params.require(:project).permit(:title, :description, :main_image, :github, :thumb_image, :stack_list)
   end
 end
