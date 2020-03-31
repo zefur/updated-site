@@ -2,7 +2,7 @@
 lock "~> 3.12.1"
 
 set :application, "jdhall"
-set :repo_url, "https://github.com/zefur/updated-site"
+set :repo_url, "git@github.com:zefur/updated-site"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
