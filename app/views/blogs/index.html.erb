@@ -9,5 +9,7 @@
    </div>
 <%end%>
  
-    <%= render @blogs %>
+    <%= render @blogs.reverse_order %>
+    <%= paginate @blogs%>
+
     </div>

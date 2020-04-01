@@ -4,7 +4,7 @@ class BlogsController < ApplicationController
   layout "blog"
     def index
         @blog
-       params[:tag] ? @blogs = Blog.tagged_with(params[:tag]) : @blogs = Blog.all
+       params[:tag] ? @blogs = Blog.tagged_with(params[:tag]) : @blogs = Blog.page(params[:page]).per(5)
        
     end
 
