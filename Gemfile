@@ -39,6 +39,7 @@ gem 'ed25519'
 gem 'bcrypt_pbkdf'
 gem 'mysql2'
 gem 'kaminari'
+gem 'bootstrap'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false

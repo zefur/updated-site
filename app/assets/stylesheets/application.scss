@@ -13,7 +13,11 @@
  *= require_tree .
  *= require_self
  */
+<<<<<<< HEAD:app/assets/stylesheets/application.scss
   
+=======
+ @import "bootstrap"; 
+>>>>>>> 0cf3f5a5e7086d9f4e9b5c12c0d5e34a26835287:app/assets/stylesheets/application.scss
 
 /*
  * Globals
@@ -146,6 +150,10 @@ body {
   z-index: -1000;
   -webkit-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%);
+<<<<<<< HEAD:app/assets/stylesheets/application.scss
   
+=======
+  background: image-url('mountainsMC.jpeg') no-repeat;
+>>>>>>> 0cf3f5a5e7086d9f4e9b5c12c0d5e34a26835287:app/assets/stylesheets/application.scss
   background-size: cover;
 }
