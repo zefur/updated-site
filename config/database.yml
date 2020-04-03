@@ -28,5 +28,5 @@ production:
   encoding: utf8
   database: jdhall
   pool: 5
-  username: root
-  password: 
+  username: deploy
+  password: Sakurayume225
