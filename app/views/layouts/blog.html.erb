@@ -8,27 +8,25 @@
     <%= stylesheet_link_tag 'blogs', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'blogs', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    </head>
+  </head>
 
-    <body >
+  <body >
     
     <div >
-  
       <p class="notice"><%= notice%></p>
       <p class="alert"><%=alert%></p>
-       <%= render "shared/nav"%>
+      <%= render "shared/nav"%>
       <!--Nav from blog
       <%= render "shared/blog_nav"%>
       end nav-->
       <!--blog header-->
-  
       <%= render "shared/blog_masthead"%>       
-
       <div class="container">
         <div class="row">
           <%= yield %>
           <%= render "shared/blog_sidebar"%>
-          </div>
+        </div>
       </div>
-      </div>
-      </body>
+    </div>
+  </body>
+</html>
