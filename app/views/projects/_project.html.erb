@@ -5,9 +5,16 @@
   <%=image_tag (Placeholder.image(height:300, width: 200)),class: "card-img"  %>
   <div class="card-img-overlay">
     <h5 class="card-title"><%= link_to project.title, project_path(project) %></h5>
-    <p class="card-text">T<%= project.description %></p>
+    <p class="card-text"><%= project.description %></p>
+    <p class="card-text"><%= raw language_links(project.stack_list) %></p>
     <p class="card-text">Last updated 3 mins ago</p>
   </div>
 </div>
+ <% if logged_in?(:site_admin)%>
+        <div class="btn-group">
+          <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to "Edit this post", edit_project_path(project.id)%></button>
+          <button type="button" class="btn btn-sm btn-outline-danger"><%= button_to "Delete Portfolio Item", project_path(project), method: :delete, data: {confirm: 'Are you sure?'} %></button>
+        </div>
+      <% end%>
 </div>
 
