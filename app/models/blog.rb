@@ -17,7 +17,7 @@ class Blog < ApplicationRecord
       end
     
       def tag_list
-        self.tags.map(&:topic).join(', ')
+        self.tags.map(&:topic).join(',')
       end
     
       def tag_list=(topics)

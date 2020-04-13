@@ -1,4 +1,5 @@
 class Language < ApplicationRecord
+    has_many :stacks
     has_many :projects, through: :stacks
 
     def self.counts

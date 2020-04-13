@@ -2,7 +2,7 @@ class PortfoliosController < ApplicationController
   layout "portfolio"
   def index
     @project
-    params[:languages] ? @projects = Project.tagged_with(params[:language]) : @projects = Project.all
+    params[:language] ? @projects = Project.tagged_with(params[:language]) : @projects = Project.all
   end
   
   def new
