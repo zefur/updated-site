@@ -29,7 +29,7 @@ gem 'coderay'
 gem 'redcarpet'
 gem 'friendly_id'
 # Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
+gem 'image_processing', '~> 1.2'
 # gems for deployment
 gem 'capistrano', '~> 3.11'
 gem 'capistrano-rails', '~> 1.4'

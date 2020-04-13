@@ -1,14 +1,29 @@
-<p>
-  <strong>Title:</strong>
-  <%= @project.title %>
- 
-</p>
- <%=image_tag(@project.main_image)%>
-<p>
-  <strong>description:</strong>
-  <%= @project.description %>
-</p>
-<p>
-<strong>Website or Repo</strong>
-<%=@project.github%>
-</p>
+
+
+<!-- Page Content -->
+<div class="container">
+
+  <!-- Portfolio Item Heading -->
+  <h1 class="my-4"><%=@project.title%>
+    <small><%=@project.github%></small>
+  </h1>
+
+  <!-- Portfolio Item Row -->
+  <div class="row">
+
+    <div class="col-md-8">
+      <%=image_tag(@project.main_image.variant(resize_to_fit: [750,500]))%>
+    </div>
+
+    <div class="col-md-4">
+      <h3 class="my-3">Project Description</h3>
+      <%= @project.description %>
+      <h3 class="my-3">Project Details</h3>
+      <ul>
+      <% @project.languages.each do |code|%>
+        <li><%= code.language%></li>
+        <%end%>
+      </ul>
+    </div>
+
+  
