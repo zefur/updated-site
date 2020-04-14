@@ -18,7 +18,7 @@
     <div class="col-md-4">
       <h3 class="my-3">Project Description</h3>
       <%= @project.description %>
-      <h3 class="my-3">Project Details</h3>
+      <h3 class="my-3">Built with:</h3>
       <ul>
       <% @project.languages.each do |code|%>
         <li><%= code.language%></li>
