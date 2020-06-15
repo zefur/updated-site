@@ -40,7 +40,7 @@ gem 'bcrypt_pbkdf'
 gem 'mysql2'
 gem 'kaminari'
 gem 'bootstrap'
-
+gem 'font_awesome5_rails'
 
 
 

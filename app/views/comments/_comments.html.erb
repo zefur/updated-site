@@ -1,0 +1,47 @@
+ <h2>Comments</h2>
+  <% @blog.comments.each do |comment| %>
+ 
+  <section class="comments">
+    <article class="be-comment">
+     	<div class="be-img-comment">	
+			
+      
+	
+  <i class="fas fa-user" ></i>
+		
+		</div>
+      <div class="be-comment-content">
+      <span class="be-comment-name"><%= comment.commenter %></span>
+      	<span class="be-comment-time">
+					<i class="fa fa-clock-o"></i>
+				</span>
+        <div class="be-comment-text">
+          <%= comment.body %>
+        </div>
+        
+      </div>
+    </article>  
+  </section>
+
+  <% end %>
+  <h2>Add a comment:</h2>
+  <%= form_with(model: [ @blog, @blog.comments.build ], local: true) do |form|
+  %>
+  <div class="col-xs-12 col-sm-6">
+				<div class="form-group fl_icon">
+        
+					<div class="icon"><i class="fa fa-user"></i></div>
+					<%= form.text_field :commenter, class: "form-input", placeholder: "Name" %>
+				</div>
+			</div>
+    
+    <div class="col-xs-12">									
+				<div class="form-group">
+				<%= form.text_area :body, class: "form-input" %>
+				</div>
+			</div>
+ 
+  <p>
+    <%= form.submit "Add a comment", class: "btn btn-primary" %>
+  </p>
+  <% end %>

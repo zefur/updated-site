@@ -14,42 +14,7 @@
  
   <%= link_to "Back to blogs", blogs_path %>
 
-  <h2>Comments</h2>
-  <% @blog.comments.each do |comment| %>
-  <p>
-    <strong>:</strong>
-    
-  </p>
-  <section class="comments">
-    <article class="comment">
-      <a class="comment-img" href="#non">
-        <img src="https://pbs.twimg.com/profile_images/444197466133385216/UA08zh-B.jpeg" alt="" width="50" height="50">
-      </a>
-      <div class="comment-body">
-        <div class="text">
-          <%= comment.body %>
-        </div>
-        <p class="attribution">by <a href="#non"><%= comment.commenter %></a> <%=comment.created_at%></p>
-      </div>
-    </article>  
-  </section>
-
-  <% end %>
-  <h2>Add a comment:</h2>
-  <%= form_with(model: [ @blog, @blog.comments.build ], local: true) do |form|
-  %>
-  <p>
-    <%= form.label :commenter %><br />
-    <%= form.text_field :commenter %>
-  </p>
-  <p>
-    <%= form.label :body %><br />
-    <%= form.text_area :body %>
-  </p>
-  <p>
-    <%= form.submit %>
-  </p>
-  <% end %>
+  <%= render "comments/comments" %>
 
   
     <%# <div class="well">
