@@ -8,6 +8,7 @@
         <p>comments: <%= blog.comments.count %>
         <p><%= link_to "Read Post", blog_path(blog) %></p>
         <%  if logged_in?(:site_admin)%>
+        <p><%= link_to blog.status, toggle_status_blog_path(blog) %></p>
         <p><%= link_to "Edit", edit_blog_path(blog)%>
         <p><%= button_to "Delete", blog, method: :delete, data: {confirm: 'Are you sure?'} %>
         <%end%>

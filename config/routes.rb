@@ -9,6 +9,9 @@ Rails.application.routes.draw do
 
   resources :blogs do
     resources :comments
+    member do
+      get :toggle_status
+    end
   end
   
   get 'tags/:tag', to: 'blogs#index', as: :tag

@@ -3,9 +3,13 @@ class BlogsController < ApplicationController
   access all: [:show, :index], user: {except: [:destroy, :new, :create, :edit, :update, :toggle_status]}, site_admin: :all
   layout "blog"
     def index
+      if logged_in?(:site_admin)
         @blog
        params[:tag] ? @blogs = Blog.tagged_with(params[:tag]).page(params[:page]).per(5) : @blogs = Blog.page(params[:page]).per(5)
-       
+      else
+        @blog
+       params[:tag] ? @blogs = Blog.tagged_with(params[:tag]).published.page(params[:page]).per(5) : @blogs = Blog.published.page(params[:page]).per(5)
+      end
     end
 
     def show
@@ -58,7 +62,15 @@ def create
       format.html { redirect_to blogs_url, notice: 'Blog was successfully destroyed.' }
     end
   end
-
+  def toggle_status
+    
+    if @blog.draft?
+      @blog.published!
+    elsif @blog.published?
+      @blog.draft!
+  end
+  redirect_to blogs_url, notice: 'Post status updated'
+end
     private
     def blog_params
         params.require(:blog).permit(:title, :body,:tag_list,)
