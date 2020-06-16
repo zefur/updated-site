@@ -49,9 +49,9 @@ server "jdhall.dev", user: "deploy", roles: %w{app db web}, my_property: :my_val
 #
 # The server-based syntax can be used to override options:
 # ------------------------------------
-# server "example.com",
-#   user: "user_name",
-#   roles: %w{web app},
+server "jdhall.dev",
+   user: "deploy",
+   roles: %w{web app},
 #   ssh_options: {
 #     user: "user_name", # overrides user setting above
 #     keys: %w(/home/user_name/.ssh/id_rsa),
