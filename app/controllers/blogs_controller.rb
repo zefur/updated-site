@@ -73,7 +73,7 @@ def create
 end
     private
     def blog_params
-        params.require(:blog).permit(:title, :body,:tag_list,)
+        params.require(:blog).permit(:title, :body,:tag_list,:status)
     end
     def set_blog
       @blog = Blog.friendly.find(params[:id])
